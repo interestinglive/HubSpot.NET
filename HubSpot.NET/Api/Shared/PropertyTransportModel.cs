@@ -32,6 +32,14 @@
                     }
                     continue;
                 }
+                else if (prop.PropertyType.IsGenericType && value is IDictionary<string, ContactProperty> pairs1)
+                {
+                    foreach (var item in pairs1)
+                    {
+                        Properties.Add(new PropertyValuePair(item.Key, item.Value.Value?.ToString()));
+                    }
+                    continue;
+                }
                 else if(typeof(IEnumerable<>).IsAssignableFrom(prop.PropertyType) && typeof(PropertyValuePair).IsAssignableFrom(prop.PropertyType.GetElementType()))
                 {
                     IEnumerable<PropertyValuePair> pairs = value as IEnumerable<PropertyValuePair>;

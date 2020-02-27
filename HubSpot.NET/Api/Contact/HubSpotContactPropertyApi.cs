@@ -22,7 +22,7 @@
         public ContactPropertyModel CreateProperty(ContactPropertyModel entity)
         {
             string path = GetRoute<ContactPropertyModel>();
-            return _client.Execute<ContactPropertyModel, ContactPropertyModel>(path, entity, RestSharp.Method.GET);
+            return _client.Execute<ContactPropertyModel, ContactPropertyModel>(path, entity, RestSharp.Method.POST);
         }
 
         public List<ContactPropertyModel> GetProperties()
